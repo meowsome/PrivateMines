@@ -1,0 +1,15 @@
+name: PrivateMines
+version: ${project.version}
+main: me.meowso.privatemines.PrivateMines
+api-version: 1.16
+authors: [meowsome]
+description: Handles placing private mines via BentoBox's BSkyblock and MineResetLite
+depend: [BentoBox, MineResetLite]
+commands:
+  privatemines:
+    description: Main Private Mines command
+    usage: /<command>
+    permission: privatemines.controls
+    aliases:
+      - 'playermines'
+      - 'pmine'

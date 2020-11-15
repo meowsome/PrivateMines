@@ -1,0 +1,41 @@
+chatPrefix: "&8[&b&lPrivate Mines&8]"
+mines:
+  #Depth of 10
+  10:
+    composition:
+      #Must add to 100
+      diamond_block: 20.0
+      emerald_block: 20.0
+      netherite_block: 0.1
+      iron_block: 20.0
+      diamond_ore: 5.0
+      emerald_ore: 5.0
+      gold_block: 20.0
+      gold_ore: 5.0
+      iron_ore: 4.89
+    #Percent of blocks to be mined in order for the mine to reset
+    resetPercent: 90.0
+  15:
+    composition:
+      diamond_block: 25.0
+      emerald_block: 25.0
+      netherite_block: 0.1
+      iron_block: 10.0
+      diamond_ore: 5.0
+      emerald_ore: 5.0
+      gold_block: 20.0
+      gold_ore: 5.0
+      iron_ore: 4.89
+    resetPercent: 90.0
+  20:
+    composition:
+      diamond_block: 30.0
+      emerald_block: 30.0
+      netherite_block: 0.2
+      iron_block: 12.0
+      diamond_ore: 4.0
+      emerald_ore: 4.0
+      gold_block: 12.0
+      gold_ore: 4.0
+      iron_ore: 3.79
+    resetPercent: 90.0
