@@ -1,10 +1,10 @@
 package me.meowso.privatemines;
 
-import javafx.geometry.BoundingBox;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Repairable;
+import org.bukkit.util.BoundingBox;
 import world.bentobox.bentobox.BentoBox;
 import world.bentobox.bentobox.database.objects.Island;
 import world.bentobox.bentobox.managers.IslandsManager;
@@ -18,7 +18,7 @@ public class PlacementChecker {
     private static final int cooldownTime = 1000; // Milliseconds
     private IslandsManager islandsManager;
 
-    public PlacementChecker(PrivateMines privateMines) {
+    public PlacementChecker() {
         previewPending = new ArrayList<>();
         clickCooldowns = new HashMap<>();
         islandsManager = BentoBox.getInstance().getIslands();
@@ -46,9 +46,8 @@ public class PlacementChecker {
 
     public BoundingBox getIslandBox(Player player) {
         Island island = islandsManager.getIslandAt(player.getLocation()).get();
-        int islandDepth = island.getMaxProtectedX() - island.getMinProtectedX();
 
-        return new BoundingBox(island.getMinProtectedX(), 0, island.getMinProtectedZ(), islandDepth, 256, islandDepth);
+        return new BoundingBox(island.getMinProtectedX(), 0, island.getMinProtectedZ(), island.getMaxProtectedX(), 256, island.getMaxProtectedZ());
     }
 
     public void addPreviewPending(Player player) {

@@ -1,7 +1,10 @@
 package me.meowso.privatemines;
 
-import javafx.geometry.BoundingBox;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.util.BoundingBox;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -37,15 +40,19 @@ public class PlacementHandler {
         Location coords = player.getLocation();
         int halfOfSize = depth / 2;
 
-        return new BoundingBox((int) (coords.getX() - halfOfSize), (int) (coords.getY() - halfOfSize), (int) (coords.getZ() - halfOfSize), depth, depth, depth);
+        double x = coords.getX();
+        double y = coords.getY();
+        double z = coords.getZ();
+
+        return new BoundingBox(x - halfOfSize, y - halfOfSize, z - halfOfSize, x + halfOfSize, y + halfOfSize, z + halfOfSize);
     }
 
 
     public void showPlacementPreview(BoundingBox mineBox) {
-        setParticlesWidth((int) mineBox.getMinX(), (int) mineBox.getWidth(), (int) mineBox.getMinZ(), mineBox);
-        setParticlesWidth((int) mineBox.getMinX(), (int) mineBox.getWidth(), (int) mineBox.getMaxZ(), mineBox);
-        setParticlesDepth((int) mineBox.getMinX(), (int) mineBox.getDepth(), (int) mineBox.getMinZ(), mineBox);
-        setParticlesDepth((int) mineBox.getMaxX(), (int) mineBox.getDepth(), (int) mineBox.getMinZ(), mineBox);
+        setParticlesWidth((int) mineBox.getMinX(), (int) mineBox.getWidthX(), (int) mineBox.getMinZ(), mineBox);
+        setParticlesWidth((int) mineBox.getMinX(), (int) mineBox.getWidthX(), (int) mineBox.getMaxZ(), mineBox);
+        setParticlesDepth((int) mineBox.getMinX(), (int) mineBox.getWidthZ(), (int) mineBox.getMinZ(), mineBox);
+        setParticlesDepth((int) mineBox.getMaxX(), (int) mineBox.getWidthZ(), (int) mineBox.getMinZ(), mineBox);
     }
 
     public void setParticlesWidth(int x, int width, int z, BoundingBox mineBox) {

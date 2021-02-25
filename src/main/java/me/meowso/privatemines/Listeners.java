@@ -1,6 +1,5 @@
 package me.meowso.privatemines;
 
-import javafx.geometry.BoundingBox;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -11,6 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.BoundingBox;
 import world.bentobox.bentobox.api.events.island.IslandEvent;
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class Listeners implements Listener {
     public Listeners(PrivateMines privateMines) {
         this.privateMines = privateMines;
         databaseManager = new DatabaseManager(privateMines);
-        placementChecker = new PlacementChecker(privateMines);
+        placementChecker = new PlacementChecker();
         placementHandler = new PlacementHandler(privateMines);
     }
 
