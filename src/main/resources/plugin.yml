@@ -1,5 +1,5 @@
 name: PrivateMines
-version: ${project.version}
+version: 0.0.2
 main: me.meowso.privatemines.PrivateMines
 api-version: 1.17
 authors: [meowsome]
