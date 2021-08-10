@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.BoundingBox;
-import world.bentobox.bentobox.api.events.island.IslandEvent;
+import world.bentobox.bentobox.api.events.island.IslandResettedEvent;
 import java.io.IOException;
 
 public class Listeners implements Listener {
@@ -90,7 +90,7 @@ public class Listeners implements Listener {
     }
 
     // Removes all mines on an island on island reset
-    @EventHandler void onIslandReset(IslandEvent.IslandResettedEvent event) throws IOException {
+    @EventHandler void onIslandReset(IslandResettedEvent event) throws IOException {
         String islandId = event.getOldIsland().getUniqueId();
 
         placementHandler.removeMines(databaseManager.getMines(islandId));
