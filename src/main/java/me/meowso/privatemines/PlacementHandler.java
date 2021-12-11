@@ -1,9 +1,6 @@
 package me.meowso.privatemines;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.ConfigurationSection;
@@ -58,7 +55,7 @@ public class PlacementHandler {
     public void setParticlesWidth(int x, int width, int z, BoundingBox mineBox) {
         for (int i = x; i < x + width; i++) {
             for (int j = (int) mineBox.getMinY(); j < mineBox.getMinY() + mineBox.getHeight(); j++) {
-                Bukkit.getWorld("prison_cells").spawnParticle(Particle.BARRIER, i, j, z, 1);
+                Bukkit.getWorld("prison_cells").spawnParticle(Particle.BLOCK_MARKER, i, j, z, 1, Material.BARRIER.createBlockData());
             }
         }
     }
@@ -66,7 +63,7 @@ public class PlacementHandler {
     public void setParticlesDepth(int x, int depth, int z, BoundingBox mineBox) {
         for (int i = z; i < z + depth; i++) {
             for (int j = (int) mineBox.getMinY(); j < mineBox.getMinY() + mineBox.getHeight(); j++) {
-                Bukkit.getWorld("prison_cells").spawnParticle(Particle.BARRIER, x, j, i, 1);
+                Bukkit.getWorld("prison_cells").spawnParticle(Particle.BLOCK_MARKER, x, j, i, 1, Material.BARRIER.createBlockData());
             }
         }
     }
