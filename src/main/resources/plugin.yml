@@ -1,7 +1,7 @@
 name: PrivateMines
 version: 0.0.2
 main: me.meowso.privatemines.PrivateMines
-api-version: 1.17
+api-version: 1.18
 authors: [meowsome]
 description: Handles placing private mines via BentoBox's BSkyblock and MineResetLite
 depend: [BentoBox, MineResetLite]
