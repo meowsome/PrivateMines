@@ -1,5 +1,5 @@
 name: PrivateMines
-version: 0.0.2
+version: 0.0.3
 main: me.meowso.privatemines.PrivateMines
 api-version: 1.18
 authors: [meowsome]
